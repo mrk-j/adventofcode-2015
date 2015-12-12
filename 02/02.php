@@ -23,7 +23,7 @@ foreach($packages as $package)
 	];
 
 	$paper += array_sum($sides) * 2 + min($sides);
-	$ribbon += ($l * $w *$h) + min($distance) * 2;
+	$ribbon += ($l * $w * $h) + min($distance) * 2;
 }
 
 echo 'The elves should order ' . $paper . ' square feet of wrapping paper' . PHP_EOL;
