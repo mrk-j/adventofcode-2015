@@ -10,11 +10,9 @@ foreach($instructions as $instruction)
 	$outputs[$output] = $input;
 }
 
-$variables = [];
-
 function getWireSignal($output)
 {
-	global $outputs, $variables;
+	global $outputs;
 
 	if(is_numeric($output))
 	{
