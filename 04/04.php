@@ -3,7 +3,7 @@ $input = 'yzbqklnj';
 $hashFound = false;
 $i = 1;
 
-while(!$hashFound !$secondHashFound)
+while(!$hashFound)
 {
 	$hash = md5($input . $i);
 
