@@ -15,6 +15,8 @@ for($x = 0; $x <= 999; $x++)
 	}
 }
 
+$brightness = $grid;
+
 // Instructions
 foreach($instructions as $instruction)
 {
@@ -46,12 +48,15 @@ foreach($instructions as $instruction)
 			{
 				case 'turn on':
 					$grid[$x][$y] = 1;
+					$brightness[$x][$y]++;
 					break;
 				case 'turn off':
 					$grid[$x][$y] = 0;
+					$brightness[$x][$y] = $brightness[$x][$y] <= 1 ? 0 : ($brightness[$x][$y] - 1);
 					break;
 				case 'toggle':
 					$grid[$x][$y] = $grid[$x][$y] === 1 ? 0 : 1;
+					$brightness[$x][$y] = $brightness[$x][$y] + 2;
 					break;
 			}
 		}
@@ -59,13 +64,16 @@ foreach($instructions as $instruction)
 }
 
 $numberOfLitBulbs = 0;
+$totalBrightness = 0;
 
 for($x = 0; $x <= 999; $x++)
 {
 	for($y = 0; $y <= 999; $y++)
 	{
 		$numberOfLitBulbs += $grid[$x][$y] === 1 ? 1 : 0;
+		$totalBrightness += $brightness[$x][$y];
 	}
 }
 
 echo $numberOfLitBulbs . ' bulbs are lit' . PHP_EOL;
+echo 'The total brightness is ' . $totalBrightness . PHP_EOL;
